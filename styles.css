@@ -1,0 +1,197 @@
+*{
+    font-family: 'Roboto', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Đặt nền cho toàn bộ trang */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(./img/bg.png);
+    color: white;
+}
+
+/* Nội dung chính của trang */
+main {
+    flex: 1; /* Đẩy footer xuống dưới */
+}
+
+/* Footer */
+footer {
+    background-color: #31473A; /* Nền màu đen */
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 2px solid #444;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    color: #EDF4F2;
+    margin-top: 14px;
+    font-size: 18px;
+}
+
+.answers .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.answers .btn.correct {
+    animation: correct-flash 2s ease-in-out;
+}
+
+.answers .btn.incorrect {
+    animation: incorrect-flash 2s ease-in-out;
+}
+
+@keyframes correct-flash {
+    0%, 100% { background-color: green; color: white; }
+    50% { background-color: lightgreen; }
+}
+
+@keyframes incorrect-flash {
+    0%, 100% { background-color: red; color: white; }
+    50% { background-color: pink; }
+}
+
+.score-board {
+    text-align: left;
+}
+
+#fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Nền sáng và hiệu ứng bóng cho ô nhập */
+input.form-control {
+    background-color: #f8f9fa; /* Nền sáng */
+    border: 1px solid #ccc; /* Viền nhạt */
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hiệu ứng khi rê chuột hoặc nhấn vào ô nhập */
+input.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Canh giữa và bo góc nút OK */
+button#confirm-players-btn {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.answer-btn{
+    color: blue !important;
+    border-width: 2px;
+}
+
+.answer-btn:hover{
+    color: #fff !important;
+    background-color: #007bff !important;
+}
+
+#timer{
+    font-size: 24px;
+}
+
+.box {
+    margin: 0 10px;
+    min-width: 350px;
+    padding: 14px;
+    width: 250px;
+    height: auto;
+    display: grid;
+    place-content: center;
+    color: #000;
+    
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        #ffffff,
+        #ffffff 5%,
+        #ffffff 60%,
+        #ffffff 95%
+      );
+    
+    border: solid 5px transparent;
+    border-radius: 2em;
+    --gradient-border: conic-gradient(from var(--border-angle), #fff, #ff8c00 99%, #ffd700);
+  
+    background: 
+      var(--main-bg) padding-box,
+      var(--gradient-border) border-box,
+      var(--main-bg) border-box;
+    
+    background-position: center center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bg-spin-clockwise 3s linear infinite;
+    
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  
+  @keyframes bg-spin-clockwise {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+  
+  @keyframes bg-spin-counterclockwise {
+    to {
+      --border-angle: -1turn;
+    }
+  }
+  
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+
+.modal-title{
+    color: #ff8c00 !important;
+}
+
+.modal-body{
+    color: #007bff;
+}
+
+a {
+    color: #fff;
+    font-size: 12px;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.box-title{
+    min-width: 300px;
+    padding-bottom: 6px;
+    border-bottom: solid 2px #ff8c00;
+    color: #ff8c00;
+}
